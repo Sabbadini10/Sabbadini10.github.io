@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "challenge-aerolabs": {
+    "aerolabs-challenge": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/challenge-aerolabs",
+            "outputPath": "dist/aerolabs-challenge/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "challenge-aerolabs:build:production"
+              "browserTarget": "aerolabs-challenge:build:production"
             },
             "development": {
-              "browserTarget": "challenge-aerolabs:build:development"
+              "browserTarget": "aerolabs-challenge:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "challenge-aerolabs:build"
+            "browserTarget": "aerolabs-challenge:build"
           }
         },
         "test": {
@@ -91,8 +91,65 @@
             ],
             "scripts": []
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/aerolabs-challenge/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false,
+              "vendorChunk": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "aerolabs-challenge:build:development",
+              "serverTarget": "aerolabs-challenge:server:development"
+            },
+            "production": {
+              "browserTarget": "aerolabs-challenge:build:production",
+              "serverTarget": "aerolabs-challenge:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "aerolabs-challenge:build:production",
+              "serverTarget": "aerolabs-challenge:server:production"
+            },
+            "development": {
+              "browserTarget": "aerolabs-challenge:build:development",
+              "serverTarget": "aerolabs-challenge:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "8f7096d9-c69f-4ded-98f4-08365e49fde1"
   }
 }
