@@ -3,6 +3,12 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+@import url('https://fonts.googleapis.com/css2?family=Raleway&family=Rubik&display=swap');
+
+:root{
+  --tipografiaRubik: 'Rubik', sans-serif;
+}
+
 
 *{
   padding: 0;

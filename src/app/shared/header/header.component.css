@@ -32,9 +32,11 @@ nav{
 .header-nav-name{
   font-size: 10px;
   font-weight: 500;
+   font-family: var(--tipografiaRubik);
   }
 
 .header-nav-points{
 font-size: 10px;
 font-weight: 500;
+ font-family: var(--tipografiaRubik);
 }

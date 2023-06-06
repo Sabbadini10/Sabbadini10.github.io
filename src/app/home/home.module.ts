@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { BannerModule } from './component/banner/banner.module';
+import { PaginadorModule } from './component/paginador/paginador.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { BannerModule } from './component/banner/banner.module';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    BannerModule
+    BannerModule,
+    PaginadorModule
   ],
   exports: [
     HomeComponent
