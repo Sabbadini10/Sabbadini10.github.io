@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PaginadorComponent } from './paginador.component';
-
+import { PaginatorModule } from 'primeng/paginator';
+import { ButtonModule } from 'primeng/button';
+import { SliderModule } from 'primeng/slider';
 
 
 @NgModule({
@@ -9,7 +11,10 @@ import { PaginadorComponent } from './paginador.component';
     PaginadorComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    PaginatorModule,
+    ButtonModule,
+    SliderModule
   ],
   exports: [
     PaginadorComponent
