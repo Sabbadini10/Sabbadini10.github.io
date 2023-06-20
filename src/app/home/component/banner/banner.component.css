@@ -16,3 +16,19 @@
   font-weight: 900;
   color: aliceblue;
 }
+
+
+
+@media (min-width: 768px) {
+.banner-img{
+  height: 300px;
+}
+
+}
+
+@media (min-width: 1024px) {
+.banner-img{
+  height: 400px;
+}
+
+}

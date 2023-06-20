@@ -19,10 +19,9 @@ nav{
 .card {
   width: 65px;
   height: 25px;
+  padding: 9px;
   border-radius: 30px;
   background: #e0e0e0;
- /*  box-shadow: 15px 15px 30px #bebebe,
-             -15px -15px 30px #ffffff; */
 }
 
 .header-nav-icon{
@@ -42,6 +41,7 @@ font-size: 10px;
 font-weight: 500;
  font-family: var(--tipografiaRubik);
 }
+
 
 
 @media only screen and (min-width: 768px) {
@@ -71,4 +71,27 @@ font-weight: 500;
   font-weight: 500;
    font-family: var(--tipografiaRubik);
   }
+}
+
+
+@media (min-width: 1024px) {
+  .card {
+  width: 75px;
+  height: 35px;
+}
+
+.header-nav-icon{
+  width:30px ;
+  height:30px;
+}
+
+
+.header-nav-name{
+  font-size: 12px;
+  }
+
+.header-nav-points{
+font-size: 12px;
+}
+
 }

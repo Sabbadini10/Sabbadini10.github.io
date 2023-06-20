@@ -1,3 +1,8 @@
+.container-paginador{
+  display: flex;
+  flex-direction: column;
+}
+
 .card-container {
   width: 300px;
   height: 320px;
@@ -142,11 +147,12 @@
   font-weight: 600;
 }
 
+
 .paginator-container-buttons-sortby--button{
   background-color: #b3b8bd;
   border-radius: 15px;
   width:auto;
-  padding:5px 3px;
+  padding:6px 6px;
   color: #434950;
   font-family: var(--tipografiaRubik);
 }
@@ -173,4 +179,12 @@
   border-radius: 15px;
   width:auto;
   padding:5px 3px;
+}
+
+
+@media (min-width: 768px) {
+ .container-paginador{
+  flex-direction: row;
+}
+
 }

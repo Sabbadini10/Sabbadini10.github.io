@@ -1,16 +1,12 @@
- <div class="paginator-container flex flex-row items-center gap-10 py-5 px-5">
-<div>
-<div class="flex align-items-center justify-content-end">
+ <div class="paginator-container container-paginador gap-10 py-5 px-5">
+<div class="paginator-container-products-number--container">
     <!-- Paginador 1 -->
-  <p-paginator class="paginator-container-products-number"
+  <p-paginator class="flex flex-row paginator-container-products-number"
     [rows]="rows" [totalRecords]="totalRecords"
     [first]="first" (onPageChange)="onPageChange1($event)"
     [showCurrentPageReport]="true" currentPageReportTemplate="{{first}} - {{first + rows}} of {{totalRecords}}"
     [showPageLinks]="false" [showFirstLastIcon]="false">
   </p-paginator>
-
-
-</div>
 </div>
   <div class="paginator-container-buttons-sortby flex flex-row items-center gap-4">
     <p class="paginator-container-buttons-sortby--sortby">
