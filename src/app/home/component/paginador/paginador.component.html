@@ -1,8 +1,15 @@
  <div class="paginator-container flex flex-row items-center gap-10 py-5 px-5">
 <div>
 <div class="flex align-items-center justify-content-end">
-  <p-paginator  class="paginator-container-products-number" [first]="first1" [rows]="rows1" [totalRecords]="32" (onPageChange)="onPageChange2($event)" [showCurrentPageReport]="true"
-      currentPageReportTemplate="{{first1}} of {totalRecords}" [showPageLinks]="false" [showFirstLastIcon]="false" ></p-paginator>
+    <!-- Paginador 1 -->
+  <p-paginator class="paginator-container-products-number"
+    [rows]="rows" [totalRecords]="totalRecords"
+    [first]="first" (onPageChange)="onPageChange1($event)"
+    [showCurrentPageReport]="true" currentPageReportTemplate="{{first}} - {{first + rows}} of {{totalRecords}}"
+    [showPageLinks]="false" [showFirstLastIcon]="false">
+  </p-paginator>
+
+
 </div>
 </div>
   <div class="paginator-container-buttons-sortby flex flex-row items-center gap-4">
@@ -10,7 +17,7 @@
       Sort by:
     </p>
     <div class="paginator-container-buttons-sortby--container-button flex flex-row gap-4">
-      <button class="paginator-container-buttons-sortby--button"  (click)="changeColor1()" [ngClass]="{'active1': isClicked1}">Most Recent</button>
+      <button class="paginator-container-buttons-sortby--button" (click)="toggleFiltroPrecioRamdon()"  (click)="changeColor1()" [ngClass]="{'active1': isClicked1}">Most Recent</button>
     <button class="paginator-container-buttons-sortby--button" (click)="toggleFiltroPrecioBajo()" (click)="changeColor2()" [ngClass]="{'active2': isClicked2}">Lowest price</button>
     <button class="paginator-container-buttons-sortby--button" (click)="toggleFiltroPrecioCaro()" (click)="changeColor3()" [ngClass]="{'active3': isClicked3}">Highest price</button>
   </div>
@@ -139,7 +146,6 @@
     </div>
   </div>
   </div>
-
 </div>
 
   <div class="flex flex-row flex-wrap justify-around items-center mt-5 px-5" *ngIf="filtroPrecioBarato">
@@ -385,6 +391,130 @@
     </div>
 
       </div>
+    </div>
+    </div>
+    </div>
+    <div class="flex flex-row flex-wrap justify-around items-center mt-5 px-5" *ngIf="filtroPrecioRamdon">
+    <div class="card-container flex justify-center  mt-5"  *ngFor="let producto of productosFiltrados">
+      <div class="card">
+      <div class="front-content flex flex-col">
+        <div>
+          <img [src]="producto.img.url" alt="Imagen">
+          <svg class="card-container-icon-blue" width="40px" height="40px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <!-- Generator: Sketch 46.1 (44463) - http://www.bohemiancoding.com/sketch -->
+            <title>Icon</title>
+            <desc>Created with Sketch.</desc>
+            <defs>
+                <radialGradient cx="50%" cy="50.8764901%" fx="50%" fy="50.8764901%" r="79.8469947%" id="radialGradient-1">
+                    <stop stop-color="#0AD4FA" offset="0%"></stop>
+                    <stop stop-color="#25BBF1" offset="100%"></stop>
+                </radialGradient>
+            </defs>
+            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g id="Catalog" transform="translate(-354.000000, -648.000000)">
+                    <g id="products" transform="translate(132.000000, 624.000000)">
+                        <g id="line-1">
+                            <g id="product-card" transform="translate(0.000000, 12.000000)">
+                                <g id="Icon" transform="translate(222.000000, 12.000000)">
+                                    <g>
+                                        <circle id="Oval-Copy-5" fill="url(#radialGradient-1)" cx="21" cy="21" r="21"></circle>
+                                        <path d="M29.9946924,29.1076172 L28.8822001,15.5306936 C28.8580225,15.225303 28.594495,14.9894436 28.277518,14.9894436 L25.2452125,14.9894436 L25.2452125,13.9296875 C25.2452125,12.3142578 23.8849203,11 22.2129071,11 L19.7870627,11 C18.1150494,11 16.7547572,12.3142578 16.7547572,13.9296875 L16.7547572,14.9894436 L13.7224518,14.9894436 C13.4054748,14.9894436 13.1419472,15.225303 13.1177696,15.5306936 L12.0053178,29.1073828 C11.9665447,29.5939844 12.1411651,30.0784375 12.4843816,30.4365234 C12.8275982,30.7946094 13.3141821,31 13.8193238,31 L28.1806055,31 C28.6857472,31 29.1722907,30.7946484 29.5155477,30.4365625 C29.8588046,30.0784766 30.033425,29.5940234 29.9946924,29.1076172 Z M18,14.25 C18,13.00935 18.80748,12 19.8,12 L22.2,12 C23.19252,12 24,13.00935 24,14.25 L24,15 L18,15 L18,14.25 Z" id="Shape-Copy-2" fill="#FFFFFF" fill-rule="nonzero"></path>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </svg>
+      </div>
+      <div class="card-container-name-category">
+        <p class="card-container-category">{{producto.category}}</p>
+        <p class="card-container-name">{{producto.name}}</p>
+      </div>
+      </div>
+      <div class="content flex justify-center items-center">
+        <div class="content-left flex flex-row">
+          <p class="card-container-cost heading">{{producto.cost}}</p>
+        <svg class="paginador-nav-icon"  viewBox="0 0 34 34" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <title>money</title>
+          <desc>Created with Sketch.</desc>
+          <defs>
+              <filter x="-9.1%" y="-9.1%" width="128.3%" height="128.3%" filterUnits="objectBoundingBox" id="filter-1">
+                  <feOffset dx="2" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+                  <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+                  <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.1 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+                  <feMerge>
+                      <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                      <feMergeNode in="SourceGraphic"></feMergeNode>
+                  </feMerge>
+              </filter>
+              <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="68.6284858%" id="radialGradient-2">
+                  <stop stop-color="#FFCF00" offset="0%"></stop>
+                  <stop stop-color="#F7AE15" offset="100%"></stop>
+              </radialGradient>
+          </defs>
+          <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g id="Catalog-pg1" transform="translate(-609.000000, -731.000000)">
+                  <g id="products" transform="translate(132.000000, 622.000000)">
+                      <g id="line-1">
+                          <g id="product-card-hover" filter="url(#filter-1)" transform="translate(300.000000, 0.000000)">
+                              <g id="money" transform="translate(71.000000, 100.000000)">
+                                  <g transform="translate(108.000000, 11.000000)">
+                                      <g>
+                                          <circle id="Oval-Copy-3" fill="url(#radialGradient-2)" cx="13" cy="13" r="13"></circle>
+                                          <path d="M13,3.0952381 C7.54580357,3.0952381 3.0952381,7.54657738 3.0952381,13 C3.0952381,18.4541964 7.54657738,22.9047619 13,22.9047619 C18.4541964,22.9047619 22.9047619,18.4534226 22.9047619,13 C22.9047619,7.54580357 18.4534226,3.0952381 13,3.0952381 Z M13,21.7440476 C8.17850893,21.7440476 4.25595238,17.8214911 4.25595238,13 C4.25595238,8.17850893 8.17850893,4.25595238 13,4.25595238 C17.8214911,4.25595238 21.7440476,8.17850893 21.7440476,13 C21.7440476,17.8214911 17.8214911,21.7440476 13,21.7440476 Z" id="Shape" fill="#F8B013" fill-rule="nonzero"></path>
+                                          <path d="M13,5.2962963 C8.76834769,5.2962963 5.2962963,8.76956614 5.2962963,13 C5.2962963,17.2316523 8.76956614,20.7037037 13,20.7037037 C17.2316523,20.7037037 20.7037037,17.2304339 20.7037037,13 C20.7037037,8.76834769 17.2304339,5.2962963 13,5.2962963 Z M13,19.5245654 C9.40233107,19.5245654 6.47543462,16.5976689 6.47543462,13 C6.47543462,9.40233107 9.40233107,6.47543462 13,6.47543462 C16.5976689,6.47543462 19.5245654,9.40233107 19.5245654,13 C19.5245654,16.5976689 16.5976689,19.5245654 13,19.5245654 Z" id="Shape" fill="#F8B013" fill-rule="nonzero"></path>
+                                      </g>
+                                  </g>
+                              </g>
+                          </g>
+                      </g>
+                  </g>
+              </g>
+          </g>
+      </svg>
+        </div>
+        <div>
+          <svg class="card-container-icon-white" width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <!-- Generator: Sketch 46.1 (44463) - http://www.bohemiancoding.com/sketch -->
+            <title>icon-white</title>
+            <desc>Created with Sketch.</desc>
+            <defs>
+                <filter x="-9.1%" y="-9.1%" width="128.3%" height="128.3%" filterUnits="objectBoundingBox" id="filter-1">
+                    <feOffset dx="2" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+                    <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+                    <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.1 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+                    <feMerge>
+                        <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                        <feMergeNode in="SourceGraphic"></feMergeNode>
+                    </feMerge>
+                </filter>
+            </defs>
+            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g id="Catalog" transform="translate(-652.000000, -634.000000)">
+                    <g id="products" transform="translate(132.000000, 624.000000)">
+                        <g id="line-1">
+                            <g id="product-card-hover" filter="url(#filter-1)" transform="translate(300.000000, 0.000000)">
+                                <g id="icon-white" transform="translate(222.000000, 12.000000)">
+                                    <g>
+                                        <circle id="Oval-Copy-6" fill="#FFFFFF" cx="21" cy="21" r="21"></circle>
+                                        <path d="M29.9946924,29.1076172 L28.8822001,15.5306936 C28.8580225,15.225303 28.594495,14.9894436 28.277518,14.9894436 L25.2452125,14.9894436 L25.2452125,13.9296875 C25.2452125,12.3142578 23.8849203,11 22.2129071,11 L19.7870627,11 C18.1150494,11 16.7547572,12.3142578 16.7547572,13.9296875 L16.7547572,14.9894436 L13.7224518,14.9894436 C13.4054748,14.9894436 13.1419472,15.225303 13.1177696,15.5306936 L12.0053178,29.1073828 C11.9665447,29.5939844 12.1411651,30.0784375 12.4843816,30.4365234 C12.8275982,30.7946094 13.3141821,31 13.8193238,31 L28.1806055,31 C28.6857472,31 29.1722907,30.7946484 29.5155477,30.4365625 C29.8588046,30.0784766 30.033425,29.5940234 29.9946924,29.1076172 Z M18,14.25 C18,13.00935 18.80748,12 19.8,12 L22.2,12 C23.19252,12 24,13.00935 24,14.25 L24,15 L18,15 L18,14.25 Z" id="Shape-Copy-2" fill="#0AD4FA" fill-rule="nonzero"></path>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </svg>
+        </div>
+    <div class="flex justify-center items-center">
+      <button class="card-button">Reedem Now</button>
+    </div>
+
+      </div>
+    </div>
     </div>
     </div>
 
