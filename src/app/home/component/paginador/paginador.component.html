@@ -54,6 +54,7 @@
           </g>
       </svg>
     </div>
+    <button class="card-button" (click)="showRedeemProducts() "></button>
     <div class="card-container-name-category">
       <p class="card-container-category">{{data.category}}</p>
       <p class="card-container-name">{{data.name}}</p>
@@ -134,11 +135,15 @@
               </g>
           </g>
       </svg>
+     
       </div>
   <div class="flex justify-center items-center">
-    <button class="card-button">Reedem Now</button>
+    <button class="card-button" (click)="showRedeemProducts()">Reedem Now</button>
   </div>
-
+  <div *ngIf="mensajeRedeem">
+  <p>{{ messageRedeem }}</p>
+</div>
+ 
     </div>
   </div>
   </div>
@@ -260,8 +265,11 @@
         </svg>
         </div>
     <div class="flex justify-center items-center">
-      <button class="card-button">Reedem Now</button>
-    </div>
+    <button class="card-button" (click)="showRedeemProducts()">Reedem Now</button>
+  </div>
+  <div *ngIf="mensajeRedeem">
+  <p>{{ messageRedeem }}</p>
+</div>
 
       </div>
     </div>
@@ -383,8 +391,11 @@
         </svg>
         </div>
     <div class="flex justify-center items-center">
-      <button class="card-button">Reedem Now</button>
-    </div>
+    <button class="card-button" (click)="showRedeemProducts()">Reedem Now</button>
+  </div>
+  <div *ngIf="mensajeRedeem">
+  <p>{{ messageRedeem }}</p>
+</div>
 
       </div>
     </div>
@@ -505,9 +516,12 @@
             </g>
         </svg>
         </div>
-    <div class="flex justify-center items-center">
-      <button class="card-button">Reedem Now</button>
-    </div>
+   <div class="flex justify-center items-center">
+    <button class="card-button" (click)="showRedeemProducts()">Reedem Now</button>
+  </div>
+  <div *ngIf="mensajeRedeem">
+  <p>{{ messageRedeem }}</p>
+</div>
 
       </div>
     </div>

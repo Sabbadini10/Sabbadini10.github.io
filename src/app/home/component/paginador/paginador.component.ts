@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { PaginadorService } from './services/paginador.service';
 import { SelectItem } from 'primeng/api';
 
@@ -11,6 +11,8 @@ export class PaginadorComponent implements OnInit {
   imagenes: any[] = []; // Array para almacenar las imagenes
   _data: any[] = []; // Array para almacenar los productos consumidos de la api
   name: string = '';
+  messageRedeem: string = '';
+  mensajeRedeem: boolean = false;
   puntos: number[] = []; // Array para almacenar los puntos
   productosHighFiltrados: number[] = []; // Array para almacenar los productos caros
   productosLowFiltrados: number[] = []; // Array para almacenar los productos baratos
@@ -26,7 +28,7 @@ export class PaginadorComponent implements OnInit {
   filtroPrecioCaro: boolean = false;
   filtroPrecioRamdon: boolean = false;
 
-  constructor(private paginadorService: PaginadorService) {}
+  constructor(private paginadorService: PaginadorService, private cdRef: ChangeDetectorRef) {}
 
   ngOnInit(): void {
     this.paginadorService.getData().subscribe((res: any) => {
@@ -47,6 +49,12 @@ export class PaginadorComponent implements OnInit {
     this.paginadorService.getData().subscribe((res: any) => {
       this.imagenes = res;
       /*  console.log(this.imagenes); */
+    });
+
+    this.paginadorService.getDataRedeem().subscribe((res: any) => {
+      this.messageRedeem = res.message;
+      console.log(this.messageRedeem);
+      this.cdRef.detectChanges(); // Realiza la detección de cambios después de actualizar this.messageRedeem
     });
   }
 
@@ -111,6 +119,13 @@ export class PaginadorComponent implements OnInit {
     }
   }
 
+  showRedeemProducts() {
+  this.mensajeRedeem = !this.mensajeRedeem
+      console.log('>>>><<<<' + this.messageRedeem);
+      this.cdRef.detectChanges(); // Realiza la detección de cambios después de actualizar this.mensajeRedeem
+      this.messageRedeem;
+  }
+
   first: number = 0;
   rows: number = 16;
   totalRecords: number = 32;
@@ -130,10 +145,7 @@ export class PaginadorComponent implements OnInit {
 
   // Método para filtrar y actualizar los productos mostrados en el paginador
   updateFilteredProducts() {
-     this.visibleProducts = this._data.slice(
-       this.first,
-       this.first + this.rows
-     );
+    this.visibleProducts = this._data.slice(this.first, this.first + this.rows);
   }
 
   isClicked1: boolean = false;
