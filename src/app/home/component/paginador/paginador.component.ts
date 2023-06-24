@@ -1,11 +1,12 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PaginadorService } from './services/paginador.service';
-import { SelectItem } from 'primeng/api';
+import { MessageService, SelectItem } from 'primeng/api';
 
 @Component({
   selector: 'app-paginador',
   templateUrl: './paginador.component.html',
   styleUrls: ['./paginador.component.css'],
+  providers: [MessageService],
 })
 export class PaginadorComponent implements OnInit {
   imagenes: any[] = []; // Array para almacenar las imagenes
@@ -28,7 +29,10 @@ export class PaginadorComponent implements OnInit {
   filtroPrecioCaro: boolean = false;
   filtroPrecioRamdon: boolean = false;
 
-  constructor(private paginadorService: PaginadorService, private cdRef: ChangeDetectorRef) {}
+  constructor(
+    private paginadorService: PaginadorService,
+    private messageService: MessageService
+  ) {}
 
   ngOnInit(): void {
     this.paginadorService.getData().subscribe((res: any) => {
@@ -54,7 +58,6 @@ export class PaginadorComponent implements OnInit {
     this.paginadorService.getDataRedeem().subscribe((res: any) => {
       this.messageRedeem = res.message;
       console.log(this.messageRedeem);
-      this.cdRef.detectChanges(); // Realiza la detección de cambios después de actualizar this.messageRedeem
     });
   }
 
@@ -120,11 +123,11 @@ export class PaginadorComponent implements OnInit {
   }
 
   showRedeemProducts() {
-  this.mensajeRedeem = !this.mensajeRedeem
-      console.log('>>>><<<<' + this.messageRedeem);
-      this.cdRef.detectChanges(); // Realiza la detección de cambios después de actualizar this.mensajeRedeem
-      this.messageRedeem;
+    this.mensajeRedeem = !this.mensajeRedeem;
+    console.log('>>>><<<<' + this.messageRedeem);
+    this.messageRedeem;
   }
+
 
   first: number = 0;
   rows: number = 16;

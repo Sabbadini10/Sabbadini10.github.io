@@ -76,7 +76,7 @@
   padding: 20px;
   line-height: 1.5;
   border-radius: 5px;
-  pointer-events: none;
+
    transform: translateY(100%);
   transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
 }
@@ -181,10 +181,23 @@
   padding:5px 3px;
 }
 
+.card-button-message-container{
+  background-color: #6cac2d;
+  border-radius: 15px;
+}
+
+.card-button-message{
+   font-family: var(--tipografiaRubik);
+   color: #434950;
+    font-weight: 600;
+    padding: 5px;
+}
 
 @media (min-width: 768px) {
  .container-paginador{
   flex-direction: row;
 }
+
+
 
 }
