@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PaginadorService } from './services/paginador.service';
 import { MessageService, SelectItem } from 'primeng/api';
+import { HeaderService } from '../../../shared/header/header.service';
 
 @Component({
   selector: 'app-paginador',
@@ -12,6 +13,8 @@ export class PaginadorComponent implements OnInit {
   imagenes: any[] = []; // Array para almacenar las imagenes
   _data: any[] = []; // Array para almacenar los productos consumidos de la api
   name: string = '';
+  cost: number = 0;
+  point: number = 0;
   messageRedeem: string = '';
   mensajeRedeem: boolean = false;
   puntos: number[] = []; // Array para almacenar los puntos
@@ -31,7 +34,8 @@ export class PaginadorComponent implements OnInit {
 
   constructor(
     private paginadorService: PaginadorService,
-    private messageService: MessageService
+    private priceService: PaginadorService,
+    private headerService: HeaderService
   ) {}
 
   ngOnInit(): void {
@@ -55,9 +59,18 @@ export class PaginadorComponent implements OnInit {
       /*  console.log(this.imagenes); */
     });
 
+    this.paginadorService.getData().subscribe((res: any) => {
+      this.cost = res.cost;
+      console.log(res.cost);
+    });
+
     this.paginadorService.getDataRedeem().subscribe((res: any) => {
       this.messageRedeem = res.message;
       console.log(this.messageRedeem);
+    });
+
+    this.headerService.getData().subscribe((res: any) => {
+      this.point = res.points;
     });
   }
 
@@ -128,6 +141,17 @@ export class PaginadorComponent implements OnInit {
     this.messageRedeem;
   }
 
+ /*  subtractPrice(): void {
+    // Restar el valor deseado al precio actual
+    let currentValue = this.priceService.getCurrentPrice();
+    let subtractedValue = this.point - this.filtroPrecioActivo;
+    console.log(this.point);
+    console.log(this.cost);
+    console.log(subtractedValue);
+    console.log(currentValue);
+    // Actualizar el precio utilizando el servicio
+    this.priceService.updatePrice(subtractedValue);
+  } */
 
   first: number = 0;
   rows: number = 16;

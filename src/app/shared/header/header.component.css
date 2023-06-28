@@ -76,7 +76,7 @@ font-weight: 500;
 
 @media (min-width: 1024px) {
   .card {
-  width: 75px;
+  width: 100px;
   height: 35px;
 }
 
