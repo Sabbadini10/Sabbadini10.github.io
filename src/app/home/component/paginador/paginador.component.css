@@ -1,4 +1,4 @@
-.container-paginador{
+.container-paginador {
   display: flex;
   flex-direction: column;
 }
@@ -15,7 +15,7 @@
 .card {
   width: 100%;
   height: 100%;
-  border-radius: inherit;
+
 }
 
 .card .front-content {
@@ -24,10 +24,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1)
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.card-container-name-category{
+.card-container-name-category {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -41,23 +41,22 @@
   font-family: var(--tipografiaRubik);
   font-weight: 700;
   opacity: 1;
-  color: #B0A8B9;
+  color: #b0a8b9;
 }
-
 
 .card-container-name {
   font-size: 25px;
   font-family: var(--tipografiaRubik);
   font-weight: 700;
   opacity: 1;
-  color: #4B4453;
+  color: #4b4453;
 }
 
-.card-container-cost{
+.card-container-cost {
   font-size: 25px;
   font-family: var(--tipografiaRubik);
   font-weight: 700;
-  color: #FDF7FF;
+  color: #fdf7ff;
 }
 
 .card .content {
@@ -77,8 +76,8 @@
   line-height: 1.5;
   border-radius: 5px;
 
-   transform: translateY(100%);
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+  transform: translateY(100%);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .card .content .heading {
@@ -90,112 +89,103 @@
   transform: translateY(0);
 }
 
-
 .card:hover .front-content p {
   opacity: 0;
 }
 
-
-.paginador-nav-icon{
+.paginador-nav-icon {
   width: 50px;
   height: 50px;
 }
-
-
 
 .card-button {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-   cursor:pointer;
+  cursor: pointer;
   font-size: 15px;
   font-family: var(--tipografiaRubik);
   font-weight: 500;
   letter-spacing: 0.4px;
-  color: #4B4453;
-  background-color: #FDF7FF;
+  color: #4b4453;
+  background-color: #fdf7ff;
   border-radius: 40px 40px 40px 40px;
   padding: 16px 24px 16px 28px;
- }
+}
 
-
-
-.card-container-icon-blue{
+.card-container-icon-blue {
   position: relative;
   bottom: 145px;
   left: 225px;
 }
 
-.card-container-icon-white{
+.card-container-icon-white {
   position: relative;
   bottom: 85px;
   left: 120px;
 }
 
-.paginator-container-products-number{
-  font-family: var(--tipografiaRubik) !important;
-  color: #434950 !important;
-  font-size: 16px !important;
-  font-weight: 600 !important;
-}
-
-.paginator-container-buttons-sortby--sortby{
+.paginator-container-products-number {
   font-family: var(--tipografiaRubik);
   color: #434950;
   font-size: 16px;
   font-weight: 600;
 }
 
+.paginator-container-buttons-sortby--sortby {
+  font-family: var(--tipografiaRubik);
+  color: #434950;
+  font-size: 16px;
+  font-weight: 600;
+}
 
-.paginator-container-buttons-sortby--button{
+.paginator-container-buttons-sortby--button {
   background-color: #b3b8bd;
   border-radius: 15px;
-  width:auto;
-  padding:6px 6px;
+  width: auto;
+  padding: 6px 6px;
   color: #434950;
   font-family: var(--tipografiaRubik);
 }
 
-
-.active1{
-  color:white;
+.active1 {
+  color: white;
   background: rgb(0, 208, 250, 0.5);
   border-radius: 15px;
-  width:auto;
-  padding:5px 3px;
+  width: auto;
+  padding: 5px 3px;
 }
 
-.active2{
-  color:white;
+.active2 {
+  color: white;
   background: rgb(0, 208, 250, 0.5);
   border-radius: 15px;
-  width:auto;
-  padding:5px 3px;
+  width: auto;
+  padding: 5px 3px;
 }
-.active3{
-  color:white;
+.active3 {
+  color: white;
   background: rgb(0, 208, 250, 0.5);
   border-radius: 15px;
-  width:auto;
-  padding:5px 3px;
+  width: auto;
+  padding: 5px 3px;
 }
 
-.card-button-message-container{
+.card-button-message-container {
   background-color: #6cac2d;
   border-radius: 15px;
 }
 
-.card-button-message{
-   font-family: var(--tipografiaRubik);
-   color: #434950;
-    font-weight: 600;
-    padding: 5px;
+.card-button-message {
+  font-family: var(--tipografiaRubik);
+  color: #434950;
+  font-weight: 600;
+  padding: 5px;
 }
 
 @media (min-width: 768px) {
- .container-paginador{
-  flex-direction: row;
-}
-
+  .container-paginador {
+    flex-direction: row;
+  }
 }
