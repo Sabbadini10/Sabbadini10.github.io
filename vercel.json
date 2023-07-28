@@ -1,24 +1,7 @@
 {
-  "rewrites": [
-    {
-      "source": "/old-path",
-      "destination": "/new-path"
-    },
-    {
-      "source": "/another-old-path",
-      "destination": "https://example.com"
-    }
-  ],
-  "redirects": [
-    {
-      "source": "/old-url",
-      "destination": "/new-url",
-      "statusCode": 301
-    },
-    {
-      "source": "/about-us",
-      "destination": "/about",
-      "statusCode": 302
-    }
-  ]
+  "build": {
+    "cmd": "npm run build:ssr",
+    "output": "dist/server"
+  }
 }
+
