@@ -64,10 +64,10 @@ export class PaginadorComponent implements OnInit {
       console.log(res.cost);
     });
 
-    this.paginadorService.getDataRedeem().subscribe((res: any) => {
+ /*    this.paginadorService.getDataRedeem().subscribe((res: any) => {
       this.messageRedeem = res.message;
       console.log(this.messageRedeem);
-    });
+    }); */
 
     this.headerService.getData().subscribe((res: any) => {
       this.point = res.points;

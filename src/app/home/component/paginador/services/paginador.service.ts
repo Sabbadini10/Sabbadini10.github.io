@@ -9,8 +9,8 @@ export class PaginadorService {
   constructor(private http: HttpClient) {}
 
   BASEURL = 'https://coding-challenge-api.aerolab.co/products';
-  BASEURLREDEEM =
-    'https://private-anon-7a37600fad-aerolabchallenge.apiary-mock.com/redeem';
+  /* BASEURLREDEEM =
+    'https://private-anon-7a37600fad-aerolabchallenge.apiary-mock.com/redeem'; */
   // DEV TOKEN: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc4YTk2OWFlNDM0ODAwMjBmYjI1ZTEiLCJpYXQiOjE2ODU2MjkyODl9.VNDu-cpdPQsLMcmKYzMkh2Ndts9E0EZZ-HycUA6sR3k'
   // PROD TOKEN: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc4YTk2OWFlNDM0ODAwMjBmYjI1ZTEiLCJpYXQiOjE2ODU2MjkyODl9.VNDu-cpdPQsLMcmKYzMkh2Ndts9E0EZZ-HycUA6sR3k'
 
@@ -36,9 +36,9 @@ export class PaginadorService {
     return this.http.get(this.BASEURL, { headers: this.HEADERS });
   }
 
-  getDataRedeem() {
+/*   getDataRedeem() {
     return this.http.post(this.BASEURLREDEEM, { headers: this.HEADERS });
-  }
+  } */
 
   private priceSubject = new BehaviorSubject<number>(2000);
   public priceHeader$ = this.priceSubject.asObservable();
