@@ -90,7 +90,7 @@ export class PaginadorComponent implements OnInit {
       .sort(() => Math.random() - 0.5)
       .slice(0, this.productsPerPage); // Ordeno aleatoriamente los productos y divido el array de objetos en 16 productos
     console.log(randomProducts);
-    return randomProducts.filter((producto) => producto); // Filtro los productos para eliminar elementos nulos o indefinidos
+    return randomProducts.filter((producto) => producto ); // Filtro los productos para eliminar elementos nulos o indefinidos
   }
 
   toggleFiltroPrecioBajo() {
