@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/aerolabs-challenge/browser",
+            "outputPath": "public",
             "index": "src/index.html",
             "main": "src/main.ts",
             "aot": true,
@@ -160,11 +160,60 @@
             }
           },
           "defaultConfiguration": "production"
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "aerolabs-challenge:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "aerolabs-challenge:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false
+          }
+        },
+        "ct": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "aerolabs-challenge:serve",
+            "watch": true,
+            "headless": false,
+            "testingType": "component"
+          },
+          "configurations": {
+            "development": {
+              "devServerTarget": "aerolabs-challenge:serve:development"
+            }
+          }
+        },
+        "e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "aerolabs-challenge:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "aerolabs-challenge:serve:production"
+            }
+          }
         }
       }
     }
   },
   "cli": {
-    "analytics": "8f7096d9-c69f-4ded-98f4-08365e49fde1"
+    "analytics": "8f7096d9-c69f-4ded-98f4-08365e49fde1",
+    "schematicCollections": [
+      "@cypress/schematic",
+      "@schematics/angular"
+    ]
   }
 }
